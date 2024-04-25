@@ -22,4 +22,4 @@ if __name__ == "__main__":
 
     res = get_delivery_days(postalcode)
     publish.single("posten/delivery_days", json.dumps(res["delivery_dates"]), hostname=host, auth={"username": user, "password": password}, port=int(port))
-    publish.single("posten/next_delivery", json.dumps(res["delivery_dates"][0]), hostname=host, auth={"username": user, "password": password}, port=int(port))
+    publish.single("posten/next_delivery", res["delivery_dates"][0], hostname=host, auth={"username": user, "password": password}, port=int(port))
