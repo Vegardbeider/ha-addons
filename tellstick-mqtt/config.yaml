@@ -1,13 +1,11 @@
 name: "Tellstick MQTT"
 description: "Bridge between Tellstick and MQTT"
-version: "0.1.1"
+version: "0.1.2"
 slug: "tellstick-mqtt"
 init: false
 arch:
   - amd64
 image: "vegardbeider/tellstick-mqtt"
-usb: true
-map: "addon_config"
 options:
   mqtt_host: ""
   mqtt_port: 1883
@@ -21,3 +19,5 @@ schema:
   mqtt_username: str
   mqtt_password: str
   telldus_repeat_cmd: int
+usb: true
+map: "addon_config"
