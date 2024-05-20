@@ -1,6 +1,6 @@
 name: "Tellstick MQTT"
 description: "Bridge between Tellstick and MQTT"
-version: "0.1.4"
+version: "0.1.5"
 slug: "tellstick-mqtt"
 init: false
 arch:
