@@ -1,6 +1,6 @@
 name: "Tellstick MQTT"
 description: "Bridge between Tellstick and MQTT"
-version: "0.1.3"
+version: "0.1.4"
 slug: "tellstick-mqtt"
 init: false
 arch:
@@ -20,4 +20,5 @@ schema:
   mqtt_password: str
   telldus_repeat_cmd: int
 usb: true
-map: "addon_config"
+map: 
+  - addon_config
