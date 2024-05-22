@@ -44,10 +44,10 @@ ENV PYTHONUNBUFFERED=1
 RUN ln -s /usr/local/bin/tellcore_events /usr/bin/tdevents \
     && ln -s /usr/local/bin/tellcore_controllers /usr/bin/tdcontroller
 
-COPY main.py ./
-COPY config_default.yaml ./
-COPY logging.yaml ./
-COPY src ./src
+COPY telldus-core-mqtt/main.py ./
+COPY telldus-core-mqtt/config_default.yaml ./
+COPY telldus-core-mqtt/logging.yaml ./
+COPY telldus-core-mqtt/src ./src
 
 # supervisord
 
