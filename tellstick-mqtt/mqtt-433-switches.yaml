@@ -3,18 +3,21 @@ blueprint:
   description: Read 433 MHz switches directly from MQTT
   domain: automation
   author: Vegard Jacobsen
+  source_url: https://github.com/Vegardbeider/ha-addons/edit/main/tellstick-mqtt/mqtt-433-switches.yaml
   input:
     mqtt_device:
       name: MQTT device topic
       description: The topic of the MQTT device (telldus/<id>/switch/state)
       selector:
         text: {}
-    light_target:
-      name: Lights
+    action_on:
+      name: Action ON
       selector:
-        target:
-          entity:
-            domain: light
+        action: {}
+    action_off:
+      name: Action OFF
+      selector:
+        action: {}
 
 trigger:
   - alias: Switch turned ON
@@ -34,14 +37,12 @@ action:
         id:
           - switch_on
     then:
-      - service: light.turn_on
-        target: !input light_target
+      - sequence: !input action_on
   - alias: "Turn off light"
     if:
       - condition: trigger
         id:
           - switch_off
     then:
-      - service: light.turn_off
-        target: !input light_target
+      - sequence: !input action_off
 mode: single
