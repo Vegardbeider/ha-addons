@@ -5,7 +5,7 @@ slug: "posten"
 init: false
 arch:
   - amd64
-image: "vegardbeider/posten-levering"
+# image: "vegardbeider/posten-levering"
 options:
   postnummer: ""
   mqtt_host: ""
