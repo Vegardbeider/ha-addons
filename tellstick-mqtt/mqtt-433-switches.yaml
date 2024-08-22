@@ -1,0 +1,47 @@
+blueprint:
+  name: MQTT 433 MHz Switches
+  description: Read 433 MHz switches directly from MQTT
+  domain: automation
+  author: Vegard Jacobsen
+  input:
+    mqtt_device:
+      name: MQTT device topic
+      description: The topic of the MQTT device (telldus/<id>/switch/state)
+      selector:
+        text: {}
+    light_target:
+      name: Lights
+      selector:
+        target:
+          entity:
+            domain: light
+
+trigger:
+  - alias: Switch turned ON
+    platform: mqtt
+    topic: !input mqtt_device
+    payload: "{\"switch\": 1}"
+    id: switch_on
+  - alias: Switch turned OFF
+    platform: mqtt
+    topic: !input mqtt_device
+    payload: "{\"switch\": 2}"
+    id: switch_off
+action:
+  - alias: "Turn on light"
+    if:
+      - condition: trigger
+        id:
+          - switch_on
+    then:
+      - service: light.turn_on
+        target: !input light_target
+  - alias: "Turn off light"
+    if:
+      - condition: trigger
+        id:
+          - switch_off
+    then:
+      - service: light.turn_off
+        target: !input light_target
+mode: single
