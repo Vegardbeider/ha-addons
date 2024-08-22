@@ -13,6 +13,14 @@ def get_delivery_days(postalcode):
 
     return res.json()
 
+def publish_delivery_days(res, host, port, user, password):
+    publish.single("posten/delivery_days", json.dumps(res["delivery_dates"]), hostname=host, auth={"username": user, "password": password}, port=int(port))
+    if len(res["delivery_dates"]) == 0:
+        print("No delivery dates found")
+        return
+    
+    publish.single("posten/next_delivery", res["delivery_dates"][0], hostname=host, auth={"username": user, "password": password}, port=int(port))
+
 if __name__ == "__main__":
     postalcode = sys.argv[1]
     host = sys.argv[2]
@@ -21,5 +29,4 @@ if __name__ == "__main__":
     password = sys.argv[5]
 
     res = get_delivery_days(postalcode)
-    publish.single("posten/delivery_days", json.dumps(res["delivery_dates"]), hostname=host, auth={"username": user, "password": password}, port=int(port))
-    publish.single("posten/next_delivery", res["delivery_dates"][0], hostname=host, auth={"username": user, "password": password}, port=int(port))
+    publish_delivery_days(res, host, port, user, password)
