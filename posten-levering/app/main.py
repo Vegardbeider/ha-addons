@@ -20,6 +20,8 @@ def publish_delivery_days(res, host, port, user, password):
         return
     
     publish.single("posten/next_delivery", res["delivery_dates"][0], hostname=host, auth={"username": user, "password": password}, port=int(port))
+    print("Successfully fetched delivery dates")
+    print("Next delivery date: " + res["delivery_dates"][0])
 
 if __name__ == "__main__":
     postalcode = sys.argv[1]
