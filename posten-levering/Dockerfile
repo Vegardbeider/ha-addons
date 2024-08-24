@@ -1,10 +1,4 @@
-FROM ghcr.io/home-assistant/amd64-base:3.19
-
-# Install requirements
-RUN \
-    apk add --no-cache \
-    python3 \
-    py3-pip
+FROM ghcr.io/home-assistant/amd64-base-python:3.12-alpine3.20
 
 # Copy data for add-on
 COPY . /
