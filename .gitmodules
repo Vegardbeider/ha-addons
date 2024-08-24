@@ -1,3 +1,6 @@
 [submodule "tellstick-mqtt/telldus-core-mqtt"]
 	path = tellstick-mqtt/telldus-core-mqtt
 	url = https://github.com/Vegardbeider/telldus-core-mqtt.git
+[submodule "tellstick-mqtt/telldus-core-mqtt/telldus"]
+    path = tellstick-mqtt/telldus-core-mqtt/telldus
+    url = https://github.com/Vegardbeider/telldus.git
