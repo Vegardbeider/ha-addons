@@ -1,4 +1,5 @@
-FROM ghcr.io/home-assistant/amd64-base:3.15
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
 # Compile telldus-core source
 
