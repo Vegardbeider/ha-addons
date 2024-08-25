@@ -1,4 +1,5 @@
-FROM ghcr.io/home-assistant/amd64-base:3.15
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
 # Compile telldus-core source
 
@@ -11,8 +12,6 @@ RUN apk add --no-cache \
       libftdi1 \
       libstdc++ \
       supervisor \
-      python3 \
-      py3-pip
 
 RUN apk add --no-cache --virtual .build-dependencies \
       confuse-dev \
