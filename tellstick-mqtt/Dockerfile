@@ -12,6 +12,8 @@ RUN apk add --no-cache \
       libftdi1 \
       libstdc++ \
       supervisor \
+      python3 \
+      py3-pip
 
 RUN apk add --no-cache --virtual .build-dependencies \
       confuse-dev \
