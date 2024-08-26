@@ -1,4 +1,6 @@
 # Tellstick MQTT Add-on
+![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield]
+
 This add-on converts a fork of telldus-core-mqtt created by mliljedahl to an add-on for Home Assistant.
 
 ## Prerequisites
@@ -19,3 +21,6 @@ Once everything is installed and configured the MQTT Integration should start to
 
 ## Blueprint
 For physical remotes this blueprint can be used to trigger actions when pushing ON/OFF buttons. You need to optain the MQTT topic for the remote. This is usually `telldus/<id>/switch/state` where `<id>` is the id configured for the remote in the `tellstick.conf` file. However it can also be found by going to `Settings -> Devices & services -> Devices` find the deivce representing your remote (click it). Click on `MQTT INFO`, in the box that appears the topic is shown below `Subscribed topics:`.
+
+[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
