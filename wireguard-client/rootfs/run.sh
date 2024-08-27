@@ -18,12 +18,12 @@ if [ -f "$FILE3" ]; then
 else
     echo "[Interface]" > $FILE3
     echo "PrivateKey = $(cat $FILE2)" >> $FILE3
-    echo "Address =" >> $FILE3
+    echo "Address = " >> $FILE3
 
     echo "[Peer]" >> $FILE3
-    echo "PublicKey" >> $FILE3
-    echo "AllowedIPs =" >> $FILE3
-    echo "Endpoint =" >> $FILE3
+    echo "PublicKey = " >> $FILE3
+    echo "AllowedIPs = " >> $FILE3
+    echo "Endpoint = " >> $FILE3
 
     echo "Created incomplete samlple config file"
 fi
