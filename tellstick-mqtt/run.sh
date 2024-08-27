@@ -11,4 +11,4 @@ cp /config/tellstick.conf /etc/tellstick.conf
 echo Supervisor Version $(supervisord --version)
 echo Python Version $(python --version)
 
-/usr/bin/supervisord -c /etc/supervisord.conf
+/usr/local/bin/supervisord -c /etc/supervisord.conf
