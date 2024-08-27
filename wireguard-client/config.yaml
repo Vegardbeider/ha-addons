@@ -1,0 +1,10 @@
+name: "Wireguard Client"
+description: "Connect your Home Assistant instance to a Wireguard VPN."
+version: "0.1.0"
+slug: "wgclient"
+init: false
+arch:
+  - amd64
+  - aarch64
+image: "vegardbeider/wireguard-client-{arch}-addon"
+apparmor: true
