@@ -28,6 +28,6 @@ else
     echo "Created incomplete samlple config file"
 fi
 
-cp -r /config /etc/wireguard/
+cp -r /config/* /etc/wireguard/
 
 /usr/bin/supervisord -c /etc/supervisord.conf
