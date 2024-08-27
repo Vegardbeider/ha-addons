@@ -8,3 +8,5 @@ arch:
   - aarch64
 # image: "vegardbeider/wireguard-client-{arch}-addon"
 apparmor: true
+map: 
+  - addon_config
