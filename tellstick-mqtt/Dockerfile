@@ -10,8 +10,7 @@ COPY telldus-core-mqtt/telldus /usr/src/telldus
 RUN apk add --no-cache \
       confuse \
       libftdi1 \
-      libstdc++ \
-      supervisor 
+      libstdc++
 
 RUN apk add --no-cache --virtual .build-dependencies \
       confuse-dev \
