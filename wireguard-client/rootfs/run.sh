@@ -4,20 +4,20 @@ CONFIG_PATH=/data/options.json
 
 FILE1="/config/privatekey"
 FILE2="/config/publickey"
-if [ -f "$FILE1" ] && [ -f "$FILE2"]; then
+FILE3="/config/wg0.conf"
+if [ -f "$FILE1" ] && [ -f "$FILE2" ]; then
     echo "Privatekey and Publickey already exist"
 else
     umask 077
-    /usr/bin/wg genkey | tee /config/privatekey | /usr/bin/wg pubkey > /config/publickey
+    /usr/bin/wg genkey | tee $FILE1 | /usr/bin/wg pubkey > $FILE2
     echo "Privatekey and Publickey generated"
 fi
 
-FILE3="/config/wg0.conf"
 if [ -f "$FILE3" ]; then
     echo "Config file already exist"
 else
     echo "[Interface]" > $FILE3
-    echo "PrivateKey = $(cat /config/privatekey)" >> $FILE3
+    echo "PrivateKey = $(cat $FILE2)" >> $FILE3
     echo "Address =" >> $FILE3
 
     echo "[Peer]" >> $FILE3
@@ -30,4 +30,12 @@ fi
 
 cp -r /config /etc/wireguard/
 
-/usr/bin/supervisord -c /etc/supervisord.conf
+output = $(/usr/bin/supervisord -c /etc/supervisord.conf)
+
+if [ $? -eq 0 ]; then
+    echo "Wireguard connected"
+    echo "$output"
+else
+    echo "Wireguard failed to start"
+    echo "$output"
+fi
