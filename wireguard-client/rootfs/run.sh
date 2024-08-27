@@ -17,7 +17,7 @@ if [ -f "$FILE3" ]; then
     echo "Config file already exist"
 else
     echo "[Interface]" > $FILE3
-    echo "PrivateKey = $(cat $FILE2)" >> $FILE3
+    echo "PrivateKey = $(cat $FILE1)" >> $FILE3
     echo "Address = " >> $FILE3
 
     echo "[Peer]" >> $FILE3
