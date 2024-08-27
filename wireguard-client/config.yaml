@@ -1,6 +1,6 @@
 name: "Wireguard Client Dev"
 description: "Connect your Home Assistant instance to a Wireguard VPN."
-version: "0.1.7"
+version: "0.1.8"
 slug: "wg-client"
 init: false
 arch:
@@ -9,3 +9,5 @@ arch:
 # image: "vegardbeider/wireguard-client-{arch}-addon"
 map: 
   - addon_config:rw
+privileged:
+  - NET_ADMIN
