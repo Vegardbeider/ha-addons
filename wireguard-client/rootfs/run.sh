@@ -30,5 +30,4 @@ fi
 
 cp -r /config/* /etc/wireguard/
 
-# /usr/bin/supervisord -c /etc/supervisord.conf
-/usr/bin/wg-quick up wg0
+/usr/bin/supervisord -c /etc/supervisord.conf
