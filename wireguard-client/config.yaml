@@ -8,4 +8,4 @@ arch:
   - aarch64
 # image: "vegardbeider/wireguard-client-{arch}-addon"
 map: 
-  - addon_config
+  - addon_config:rw
