@@ -1,6 +1,6 @@
 name: "Wireguard Client Dev"
 description: "Connect your Home Assistant instance to a Wireguard VPN."
-version: "0.1.6"
+version: "0.1.7"
 slug: "wg-client"
 init: false
 arch:
