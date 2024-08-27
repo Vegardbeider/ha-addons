@@ -30,12 +30,4 @@ fi
 
 cp -r /config /etc/wireguard/
 
-output = $(/usr/bin/supervisord -c /etc/supervisord.conf)
-
-if [ $? -eq 0 ]; then
-    echo "Wireguard connected"
-    echo "$output"
-else
-    echo "Wireguard failed to start"
-    echo "$output"
-fi
+/usr/bin/supervisord -c /etc/supervisord.conf
