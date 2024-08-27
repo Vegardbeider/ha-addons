@@ -9,4 +9,4 @@ arch:
 # image: "vegardbeider/wireguard-client-{arch}-addon"
 apparmor: true
 map: 
-  - addon_config
+  - addon_config:rw
