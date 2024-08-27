@@ -1,4 +1,4 @@
-name: "Tellstick MQTT"
+name: "Tellstick MQTT Dev"
 description: "Bridge between Tellstick and MQTT"
 version: "0.2.3"
 slug: "tellstick-mqtt"
