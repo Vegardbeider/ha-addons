@@ -8,4 +8,4 @@ export TDM_MQTT_PASS="$(bashio::config 'mqtt_password')"
 
 cp /config/tellstick.conf /etc/tellstick.conf
 
-/usr/bin/supervisord -c /etc/supervisord.conf
+/usr/local/bin/supervisord -c /etc/supervisord.conf

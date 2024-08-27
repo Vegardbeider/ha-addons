@@ -1,4 +1,5 @@
-FROM ghcr.io/home-assistant/amd64-base:3.15
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
 # Compile telldus-core source
 
@@ -9,10 +10,7 @@ COPY telldus-core-mqtt/telldus /usr/src/telldus
 RUN apk add --no-cache \
       confuse \
       libftdi1 \
-      libstdc++ \
-      supervisor \
-      python3 \
-      py3-pip
+      libstdc++
 
 RUN apk add --no-cache --virtual .build-dependencies \
       confuse-dev \
