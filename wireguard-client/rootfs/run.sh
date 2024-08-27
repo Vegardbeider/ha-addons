@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv bashio
 
+CONFIG_PATH=/data/options.json
+
 FILE1="/config/wg/privatekey"
 FILE2="/config/wg/publickey"
 if [ -f "$FILE1" ] && [ -f "$FILE2"]; then
