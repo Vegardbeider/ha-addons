@@ -8,8 +8,4 @@ export TDM_MQTT_PASS="$(bashio::config 'mqtt_password')"
 
 cp /config/tellstick.conf /etc/tellstick.conf
 
-echo Supervisor Version $(supervisord --version)
-echo Python Version $(python --version)
-echo Alpine Version $(cat /etc/alpine-release)
-
 /usr/local/bin/supervisord -c /etc/supervisord.conf
