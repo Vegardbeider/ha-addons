@@ -2,6 +2,15 @@
 
 CONFIG_PATH=/data/options.json
 
+# Check if wireguard interface is up
+if /usr/bin/wg show wg0 > /dev/null 2>&1; then
+    echo "Wireguard interface is already up"
+    /usr/bin/wg-quick down wg0
+    exit 0
+else
+    echo "Wireguard interface is down"
+fi
+
 FILE1="/config/privatekey"
 FILE2="/config/publickey"
 FILE3="/config/wg0.conf"
