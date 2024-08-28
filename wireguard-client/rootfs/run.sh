@@ -30,5 +30,5 @@ fi
 
 cp -r /config/* /etc/wireguard/
 
-/usr/bin/wg-quick up /etc/wireguard/wg0.conf
-tail -f /dev/null
+/usr/bin/supervisord -c /etc/supervisord.conf
+# /usr/bin/wg-quick up /etc/wireguard/wg0.conf
