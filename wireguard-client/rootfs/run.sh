@@ -2,6 +2,8 @@
 
 CONFIG_PATH=/data/options.json
 
+cp -r /config/* /etc/wireguard/
+
 # Check if wireguard interface is up
 if /usr/bin/wg show wg0 > /dev/null 2>&1; then
     echo "Wireguard interface is already up"
@@ -36,8 +38,6 @@ else
 
     echo "Created incomplete samlple config file"
 fi
-
-cp -r /config/* /etc/wireguard/
 
 /usr/bin/supervisord -c /etc/supervisord.conf
 # /usr/bin/wg-quick up /etc/wireguard/wg0.conf
