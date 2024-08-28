@@ -39,5 +39,5 @@ else
     echo "Created incomplete samlple config file"
 fi
 
-/usr/bin/supervisord -c /etc/supervisord.conf
-# /usr/bin/wg-quick up /etc/wireguard/wg0.conf
+# /usr/bin/supervisord -c /etc/supervisord.conf
+/usr/bin/wg-quick up /etc/wireguard/wg0.conf
