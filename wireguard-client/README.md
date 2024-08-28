@@ -1,10 +1,10 @@
 # WireGuard Client
 ![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield]
 
-This add-on uses [WireGuard](https://www.wireguard.com/) to create a VPN client for Home Assistant.
+This add-on uses [WireGuard](https://www.wireguard.com/) to create a VPN interface for Home Assistant.
 
 ## Prerequisites
-Configured and working wireguard tunnel.
+Configured and working wireguard tunnel (outside home assistant).
 
 ## Installation
 1. Add this add-on repository to home assistant using this link `https://github.com/vegardbeider/ha-addons`'
@@ -17,6 +17,11 @@ Edit `wg0.conf` to fit it for your configuration. Privatekey for the client is p
 
 ## Usage
 With the correct configuration your home assistant instance will be connected to you WireGuard VPN.
+
+The add-on is developed to run once. Which means it starts on startup and creates a VPN interface called wg0. The add-on it self does not run all the time in the background.
+
+### Bring down the VPN interface
+Run the add-on again to bring down the interface.
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg

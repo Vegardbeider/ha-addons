@@ -1,4 +1,4 @@
-name: "WireGuard Client"
+name: "WireGuard Client Dev"
 description: "Connect your Home Assistant instance to a Wireguard VPN."
 version: "1.0.1"
 slug: "wg-client"
@@ -12,3 +12,4 @@ map:
 privileged:
   - NET_ADMIN
 host_network: true
+startup: once
