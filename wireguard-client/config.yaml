@@ -13,3 +13,4 @@ privileged:
   - NET_ADMIN
 host_network: true
 startup: once
+device: /dev/net/tun
