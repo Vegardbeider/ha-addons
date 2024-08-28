@@ -3,11 +3,7 @@ FROM $BUILD_FROM
 
 # Install wireguard
 RUN apk add --no-cache \
-    wireguard-tools \
-    supervisor
-
-# Copy supervisor config
-COPY rootfs/supervisord.conf /etc/supervisord.conf
+    wireguard-tools
 
 # Copy run script
 COPY rootfs/run.sh /

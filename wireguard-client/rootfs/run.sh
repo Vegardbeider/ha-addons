@@ -6,7 +6,7 @@ cp -r /config/* /etc/wireguard/
 
 # Check if wireguard interface is up
 if /usr/bin/wg show wg0 > /dev/null 2>&1; then
-    echo "Wireguard interface is already up"
+    echo "Wireguard interface is up, bringing it down"
     /usr/bin/wg-quick down wg0
     exit 0
 else
