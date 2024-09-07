@@ -1,12 +1,12 @@
-name: "Tellstick MQTT"
+name: "Tellstick MQTT Dev"
 description: "Bridge between Tellstick and MQTT"
-version: "0.2.4"
+version: "0.2.4.1"
 slug: "tellstick-mqtt"
 init: false
 arch:
   - amd64
   - aarch64
-image: "ghcr.io/vegardbeider/tellstick-mqtt-ha-{arch}-addon"
+# image: "ghcr.io/vegardbeider/tellstick-mqtt-ha-{arch}-addon"
 options:
   mqtt_host: ""
   mqtt_port: 1883
