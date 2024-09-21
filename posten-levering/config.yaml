@@ -1,6 +1,6 @@
 name: "Posten Levering Dev"
 description: "Levering av post annenhver dag. Henter de neste leveringene fra posten.no"
-version: "1.4.0.3"
+version: "1.4.0.4"
 slug: "posten"
 init: false
 arch:

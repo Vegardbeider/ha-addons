@@ -35,7 +35,6 @@ def publish_device_config(host, port, user, password):
         "state_topic": "posten/delivery_days",
         "value_template": "{{ value }}",
         "unique_id": "posten_delivery_days",
-        "device_class": "timestamp",
         "device": {
             "identifiers": "posten",
             "name": "Posten",
@@ -48,7 +47,6 @@ def publish_device_config(host, port, user, password):
         "state_topic": "posten/next_delivery",
         "value_template": "{{ value }}",
         "unique_id": "posten_next_delivery",
-        "device_class": "timestamp",
         "device": {
             "identifiers": "posten",
             "name": "Posten",
