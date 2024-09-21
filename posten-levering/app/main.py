@@ -15,12 +15,12 @@ def get_delivery_days(postalcode):
 
 def publish_delivery_days(res, host, port, user, password):
     try:
-        publish.single("posten/delivery_days", json.dumps(res["delivery_dates"]), hostname=host, auth={"username": user, "password": password}, port=int(port))
+        publish.single("posten/delivery_days", json.dumps(res["delivery_dates"]), hostname=host, auth={"username": user, "password": password}, port=int(port), retain=True)
         if len(res["delivery_dates"]) == 0:
             print("No delivery dates found")
             return
         
-        publish.single("posten/next_delivery", res["delivery_dates"][0], hostname=host, auth={"username": user, "password": password}, port=int(port))
+        publish.single("posten/next_delivery", res["delivery_dates"][0], hostname=host, auth={"username": user, "password": password}, port=int(port), retain=True)
         print("Successfully fetched delivery dates")
         print("Next delivery date: " + res["delivery_dates"][0])
     except Exception as e:
