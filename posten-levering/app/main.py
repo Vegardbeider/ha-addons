@@ -61,6 +61,6 @@ if __name__ == "__main__":
     user = sys.argv[4]
     password = sys.argv[5]
 
+    publish_device_config(host, port, user, password)
     res = get_delivery_days(postalcode)
     publish_delivery_days(res, host, port, user, password)
-    publish_device_config(host, port, user, password)
