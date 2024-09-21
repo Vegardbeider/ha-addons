@@ -31,7 +31,7 @@ def publish_delivery_days(res, host, port, user, password):
 
 def publish_device_config(host, port, user, password):
     publish.single("homeassistant/sensor/posten_delivery_days/config", json.dumps({
-        "name": "Posten Delivery Days",
+        "name": "Delivery Days",
         "state_topic": "posten/delivery_days",
         "value_template": "{{ value }}",
         "unique_id": "posten_delivery_days",
@@ -43,7 +43,7 @@ def publish_device_config(host, port, user, password):
     }), hostname=host, auth={"username": user, "password": password}, port=int(port))
     
     publish.single("homeassistant/sensor/posten_next_delivery/config", json.dumps({
-        "name": "Posten Next Delivery",
+        "name": "Next Delivery",
         "state_topic": "posten/next_delivery",
         "value_template": "{{ value }}",
         "unique_id": "posten_next_delivery",
