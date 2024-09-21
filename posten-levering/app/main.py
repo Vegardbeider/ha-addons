@@ -33,7 +33,7 @@ def publish_device_config(host, port, user, password):
     publish.single("homeassistant/sensor/posten_delivery_days/config", json.dumps({
         "name": "Delivery Days",
         "state_topic": "posten/delivery_days",
-        "value_template": "{{ value_json }}",
+        "value_template": "{{ value_json | to_json }}",
         "unique_id": "posten_delivery_days",
         "device": {
             "identifiers": "posten",
