@@ -6,7 +6,7 @@ init: false
 arch:
   - amd64
   - aarch64
-image: "vegardbeider/posten-levering-{arch}-addon"
+# image: "vegardbeider/posten-levering-{arch}-addon"
 options:
   postnummer: ""
   mqtt_host: ""
