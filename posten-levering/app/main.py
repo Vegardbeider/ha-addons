@@ -14,14 +14,45 @@ def get_delivery_days(postalcode):
     return res.json()
 
 def publish_delivery_days(res, host, port, user, password):
-    publish.single("posten/delivery_days", json.dumps(res["delivery_dates"]), hostname=host, auth={"username": user, "password": password}, port=int(port))
-    if len(res["delivery_dates"]) == 0:
-        print("No delivery dates found")
-        return
+    try:
+        publish.single("posten/delivery_days", json.dumps(res["delivery_dates"]), hostname=host, auth={"username": user, "password": password}, port=int(port), retain=True)
+        if len(res["delivery_dates"]) == 0:
+            print("No delivery dates found")
+            return
+        
+        publish.single("posten/next_delivery", res["delivery_dates"][0], hostname=host, auth={"username": user, "password": password}, port=int(port), retain=True)
+        print("Successfully fetched delivery dates")
+        print("Next delivery date: " + res["delivery_dates"][0])
+    except Exception as e:
+        print("Failed to publish delivery dates")
+        print(e)
+        print("Response:")
+        print(res)
+
+def publish_device_config(host, port, user, password):
+    publish.single("homeassistant/sensor/posten_delivery_days/config", json.dumps({
+        "name": "Delivery Days",
+        "state_topic": "posten/delivery_days",
+        "value_template": "{{ value_json }}",
+        "unique_id": "posten_delivery_days",
+        "device": {
+            "identifiers": "posten",
+            "name": "Posten",
+            "manufacturer": "posten.no",
+        }
+    }), hostname=host, auth={"username": user, "password": password}, port=int(port))
     
-    publish.single("posten/next_delivery", res["delivery_dates"][0], hostname=host, auth={"username": user, "password": password}, port=int(port))
-    print("Successfully fetched delivery dates")
-    print("Next delivery date: " + res["delivery_dates"][0])
+    publish.single("homeassistant/sensor/posten_next_delivery/config", json.dumps({
+        "name": "Next Delivery",
+        "state_topic": "posten/next_delivery",
+        "value_template": "{{ value }}",
+        "unique_id": "posten_next_delivery",
+        "device": {
+            "identifiers": "posten",
+            "name": "Posten",
+            "manufacturer": "posten.no",
+        }
+    }), hostname=host, auth={"username": user, "password": password}, port=int(port))
 
 if __name__ == "__main__":
     postalcode = sys.argv[1]
@@ -32,3 +63,4 @@ if __name__ == "__main__":
 
     res = get_delivery_days(postalcode)
     publish_delivery_days(res, host, port, user, password)
+    publish_device_config(host, port, user, password)

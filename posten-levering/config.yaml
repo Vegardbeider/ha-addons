@@ -1,12 +1,12 @@
-name: "Posten Levering"
+name: "Posten Levering Dev"
 description: "Levering av post annenhver dag. Henter de neste leveringene fra posten.no"
-version: "1.4.0"
+version: "1.4.0.6"
 slug: "posten"
 init: false
 arch:
   - amd64
   - aarch64
-image: "vegardbeider/posten-levering-{arch}-addon"
+# image: "vegardbeider/posten-levering-{arch}-addon"
 options:
   postnummer: ""
   mqtt_host: ""
