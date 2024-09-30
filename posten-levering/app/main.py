@@ -40,7 +40,7 @@ def publish_device_config(host, port, user, password):
             "name": "Posten",
             "manufacturer": "posten.no",
         }
-    }), hostname=host, auth={"username": user, "password": password}, port=int(port))
+    }), hostname=host, auth={"username": user, "password": password}, port=int(port), retain=True)
     
     publish.single("homeassistant/sensor/posten_next_delivery/config", json.dumps({
         "name": "Next Delivery",
@@ -52,7 +52,7 @@ def publish_device_config(host, port, user, password):
             "name": "Posten",
             "manufacturer": "posten.no",
         }
-    }), hostname=host, auth={"username": user, "password": password}, port=int(port))
+    }), hostname=host, auth={"username": user, "password": password}, port=int(port), retain=True)
 
 if __name__ == "__main__":
     postalcode = sys.argv[1]
